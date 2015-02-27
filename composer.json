@@ -1,0 +1,35 @@
+{
+    "name": "laasti/route",
+    "description": "Route Provier",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "nebulousGirl",
+            "email": "contact@nebulousweb.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "laasti/application": "master",
+        "league/route": "master"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~4.7@dev",
+        "squizlabs/php_codesniffer": "dev-master"
+    },
+    "autoload": {
+        "psr-4": {
+            "Laasti\\Route\\": "src/"
+        }
+    },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/nebulousGirl/route"
+        },
+        {
+            "type": "vcs",
+            "url": "C:/wamp/www/laasti/application"
+        }
+    ]
+}
