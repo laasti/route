@@ -1,17 +1,16 @@
 {
     "name": "laasti/route",
-    "description": "Route Provier",
+    "description": "A route middleware for Laasti/Stack.",
     "license": "MIT",
     "authors": [
         {
-            "name": "nebulousGirl",
+            "name": "Sonia Marquette",
             "email": "contact@nebulousweb.com"
         }
     ],
-    "minimum-stability": "dev",
     "require": {
-        "laasti/application": "master",
-        "league/route": "master"
+        "league/route": "master",
+        "laasti/stack": "dev-develop"
     },
     "require-dev": {
         "phpunit/phpunit": "~4.7@dev",
@@ -29,7 +28,7 @@
         },
         {
             "type": "vcs",
-            "url": "C:/wamp/www/laasti/application"
+            "url": "C:/wamp/www/laasti/stack"
         }
     ]
 }
