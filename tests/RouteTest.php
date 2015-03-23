@@ -13,19 +13,10 @@ class RouteTest extends PHPUnit_Framework_TestCase
 
     public function testMiddlewareInterface()
     {
-        $route = new RouteMiddleware();
+        $router = new RouteCollection;
+        $route = new RouteMiddleware($router);
 
         $this->assertTrue($route instanceof MiddlewareInterface);
-    }
-
-    /**
-     * @expectedException \InvalidArgumentException
-     */
-    public function testMiddlewareNoParam()
-    {
-        $route = new RouteMiddleware();
-
-        $route->handle(new Request);
     }
 
     /**
@@ -33,18 +24,19 @@ class RouteTest extends PHPUnit_Framework_TestCase
      */
     public function testMiddlewareEmptyRouteCollection()
     {
-        $route = new RouteMiddleware();
+        $router = new RouteCollection;
+        $route = new RouteMiddleware($router);
 
-        $route->handle(new Request, new RouteCollection);
+        $route->handle(new Request);
     }
 
     public function testMiddlewareFoundRouteCollection()
     {
-        $route = new RouteMiddleware();
         $router = new RouteCollection;
+        $route = new RouteMiddleware($router);
         $router->get('test', function() { return new \Symfony\Component\HttpFoundation\Response;});
 
-        $this->assertInstanceOf('Symfony\Component\HttpFoundation\Response', $route->handle(Request::create('test'), $router));
+        $this->assertInstanceOf('Symfony\Component\HttpFoundation\Response', $route->handle(Request::create('test')));
     }
 
 }
