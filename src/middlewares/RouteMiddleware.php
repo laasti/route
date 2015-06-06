@@ -6,7 +6,7 @@
  * and open the template in the editor.
  */
 
-namespace Laasti\Route;
+namespace Laasti\Route\Middlewares;
 
 use Laasti\Stack\MiddlewareInterface;
 use League\Route\RouteCollection;
@@ -19,8 +19,9 @@ use Symfony\Component\HttpFoundation\Request;
  */
 class RouteMiddleware implements MiddlewareInterface
 {
-    protected $routes; 
-    
+
+    protected $routes;
+
     public function __construct(RouteCollection $routes)
     {
         $this->routes = $routes;
@@ -30,9 +31,7 @@ class RouteMiddleware implements MiddlewareInterface
     {
         $dispatcher = $this->routes->getDispatcher();
 
-        $response = $dispatcher->dispatch($request->getMethod(), $request->getPathInfo());
-
-        return $response;
+        return $dispatcher->dispatch($request->getMethod(), $request->getPathInfo());
     }
 
 }

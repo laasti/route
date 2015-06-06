@@ -9,12 +9,15 @@
         }
     ],
     "require": {
-        "league/route": "master",
-        "laasti/stack": "dev-develop"
+        "league/route": "~1.1",
+        "league/container": "~1.3"
     },
     "require-dev": {
-        "phpunit/phpunit": "~4.7@dev",
-        "squizlabs/php_codesniffer": "dev-master"
+        "laasti/stack": "dev-develop"
+    },
+    "suggest": {
+        "phpunit/phpunit": "A nice ORM that let's you code.",
+        "squizlabs/php_codesniffer": "For multilingual support in your Laasti application."
     },
     "autoload": {
         "psr-4": {
