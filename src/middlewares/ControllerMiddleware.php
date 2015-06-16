@@ -47,6 +47,10 @@ class ControllerMiddleware implements MiddlewareInterface
         $callable = explode('::', $controller);
         $callable[0] = $this->container->get($callable[0]);
 
+        if (!is_object($callable[0])) {
+            throw new \RuntimeException('The controller class could not be found through the container: '.$controller);
+        }
+
         return call_user_func_array($callable, [$request]);
     }
 
