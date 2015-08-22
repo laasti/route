@@ -23,15 +23,5 @@
         "psr-4": {
             "Laasti\\Route\\": "src/"
         }
-    },
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://github.com/nebulousGirl/route"
-        },
-        {
-            "type": "vcs",
-            "url": "C:/wamp/www/laasti/stack"
-        }
-    ]
+    }
 }

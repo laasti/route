@@ -1,56 +1,23 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "4a1460ade719a266d3a842d9573d03e9",
+    "hash": "94a7cd16a5bfe2df77af3fb2f4a82ddd",
     "packages": [
         {
-            "name": "laasti/stack",
-            "version": "dev-develop",
-            "source": {
-                "type": "git",
-                "url": "C:/wamp/www/laasti/stack",
-                "reference": "300c671cd914a20ce98b648d45235abac5da5a57"
-            },
-            "require": {
-                "symfony/http-foundation": "~2.6"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "~4.5",
-                "squizlabs/php_codesniffer": "~2.3"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Laasti\\Stack\\": "src/"
-                }
-            },
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "nebulousGirl",
-                    "email": "contact@nebulousweb.com"
-                }
-            ],
-            "description": "A middlewares stack for Laasti Framework",
-            "time": "2015-03-07 17:11:30"
-        },
-        {
             "name": "league/container",
-            "version": "dev-master",
+            "version": "1.3.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/container.git",
-                "reference": "619faf0cd55573014d7fc3eb43ef53108d2fbe66"
+                "reference": "7e6c17fe48f76f3b97aeca70dc29c3f3c7c88d15"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/container/zipball/619faf0cd55573014d7fc3eb43ef53108d2fbe66",
-                "reference": "619faf0cd55573014d7fc3eb43ef53108d2fbe66",
+                "url": "https://api.github.com/repos/thephpleague/container/zipball/7e6c17fe48f76f3b97aeca70dc29c3f3c7c88d15",
+                "reference": "7e6c17fe48f76f3b97aeca70dc29c3f3c7c88d15",
                 "shasum": ""
             },
             "require": {
@@ -65,7 +32,8 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.3-dev"
+                    "dev-master": "2.0-dev",
+                    "dev-1.x": "1.3-dev"
                 }
             },
             "autoload": {
@@ -94,20 +62,20 @@
                 "injection",
                 "league"
             ],
-            "time": "2015-03-04 08:41:55"
+            "time": "2015-04-05 17:14:48"
         },
         {
             "name": "league/route",
-            "version": "dev-master",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/nebulousGirl/route.git",
-                "reference": "ab1dda91452546a06d49d44484cd88d999c5ecb8"
+                "url": "https://github.com/thephpleague/route.git",
+                "reference": "06b0b3cb203f329875ad534d0f8a049d23767005"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nebulousGirl/route/zipball/ab1dda91452546a06d49d44484cd88d999c5ecb8",
-                "reference": "ab1dda91452546a06d49d44484cd88d999c5ecb8",
+                "url": "https://api.github.com/repos/thephpleague/route/zipball/06b0b3cb203f329875ad534d0f8a049d23767005",
+                "reference": "06b0b3cb203f329875ad534d0f8a049d23767005",
                 "shasum": ""
             },
             "require": {
@@ -134,11 +102,7 @@
                     "League\\Route\\": "src"
                 }
             },
-            "autoload-dev": {
-                "psr-4": {
-                    "League\\Route\\Test\\": "tests"
-                }
-            },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -156,23 +120,20 @@
                 "league",
                 "route"
             ],
-            "support": {
-                "source": "https://github.com/nebulousGirl/route/tree/master"
-            },
-            "time": "2015-03-07 00:01:25"
+            "time": "2015-02-24 18:34:01"
         },
         {
             "name": "nikic/fast-route",
-            "version": "v0.3.0",
+            "version": "v0.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nikic/FastRoute.git",
-                "reference": "57a2aec2d597f166c4139e44953bc42b7eaf9e54"
+                "reference": "31fa86924556b80735f98b294a7ffdfb26789f22"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nikic/FastRoute/zipball/57a2aec2d597f166c4139e44953bc42b7eaf9e54",
-                "reference": "57a2aec2d597f166c4139e44953bc42b7eaf9e54",
+                "url": "https://api.github.com/repos/nikic/FastRoute/zipball/31fa86924556b80735f98b294a7ffdfb26789f22",
+                "reference": "31fa86924556b80735f98b294a7ffdfb26789f22",
                 "shasum": ""
             },
             "require": {
@@ -202,29 +163,28 @@
                 "router",
                 "routing"
             ],
-            "time": "2014-11-26 18:36:25"
+            "time": "2015-06-18 19:15:47"
         },
         {
             "name": "symfony/http-foundation",
-            "version": "2.7.x-dev",
-            "target-dir": "Symfony/Component/HttpFoundation",
+            "version": "v2.7.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/HttpFoundation.git",
-                "reference": "ca8e158ab95c4aba3200b53dd319bc807f4ce259"
+                "reference": "863af6898081b34c65d42100c370b9f3c51b70ca"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/HttpFoundation/zipball/ca8e158ab95c4aba3200b53dd319bc807f4ce259",
-                "reference": "ca8e158ab95c4aba3200b53dd319bc807f4ce259",
+                "url": "https://api.github.com/repos/symfony/HttpFoundation/zipball/863af6898081b34c65d42100c370b9f3c51b70ca",
+                "reference": "863af6898081b34c65d42100c370b9f3c51b70ca",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.9"
             },
             "require-dev": {
-                "symfony/expression-language": "~2.4|~3.0.0",
-                "symfony/phpunit-bridge": "~2.7|~3.0.0"
+                "symfony/expression-language": "~2.4",
+                "symfony/phpunit-bridge": "~2.7"
             },
             "type": "library",
             "extra": {
@@ -233,11 +193,11 @@
                 }
             },
             "autoload": {
-                "psr-0": {
+                "psr-4": {
                     "Symfony\\Component\\HttpFoundation\\": ""
                 },
                 "classmap": [
-                    "Symfony/Component/HttpFoundation/Resources/stubs"
+                    "Resources/stubs"
                 ]
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -246,26 +206,68 @@
             ],
             "authors": [
                 {
-                    "name": "Symfony Community",
-                    "homepage": "http://symfony.com/contributors"
-                },
-                {
                     "name": "Fabien Potencier",
                     "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
                 }
             ],
             "description": "Symfony HttpFoundation Component",
-            "homepage": "http://symfony.com",
-            "time": "2015-02-25 12:51:44"
+            "homepage": "https://symfony.com",
+            "time": "2015-07-22 10:11:00"
         }
     ],
-    "packages-dev": null,
+    "packages-dev": [
+        {
+            "name": "laasti/stack",
+            "version": "dev-develop",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Laasti/stack.git",
+                "reference": "b07a639f2671e6173a6c6888b534958e7da3f391"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Laasti/stack/zipball/b07a639f2671e6173a6c6888b534958e7da3f391",
+                "reference": "b07a639f2671e6173a6c6888b534958e7da3f391",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0",
+                "symfony/http-foundation": "~2.6"
+            },
+            "require-dev": {
+                "league/container": "~1.3"
+            },
+            "suggest": {
+                "league/container": "Required to use the ContainerStack class."
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Laasti\\Stack\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "nebulousGirl",
+                    "email": "contact@nebulousweb.com"
+                }
+            ],
+            "description": "A middlewares stack for Laasti Framework",
+            "time": "2015-06-03 17:59:50"
+        }
+    ],
     "aliases": [],
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "stability-flags": {
-        "laasti/stack": 20,
-        "phpunit/phpunit": 20,
-        "squizlabs/php_codesniffer": 20
+        "laasti/stack": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
