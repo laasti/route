@@ -1,5 +1,3 @@
-> This is an alpha version.
-
 # Laasti/Route
 
 An advanced implementation of PHP League Route package. A two-step route middleware for Laasti/Stack.
@@ -65,9 +63,9 @@ Without Laasti\Stack:
 4. Push to the branch: `git push origin my-new-feature`
 5. Submit a pull request :D
 
-## Changelog
+## History
 
-v1.0 (2015-08-22): Official release
+See CHANGELOG.md for more information.
 
 ## Credits
 
@@ -75,7 +73,7 @@ Author: Sonia Marquette (@nebulousGirl)
 
 ## License
 
-Released under the MIT License. See LICENSE file.
+Released under the MIT License. See LICENSE.txt file.
 
 
 
