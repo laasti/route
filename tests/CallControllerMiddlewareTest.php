@@ -15,14 +15,14 @@ class CallControllerMiddlewareTest extends PHPUnit_Framework_TestCase
     {
         $call_middleware = new CallControllerMiddleware();
 
-        $this->assertInstanceOf('Laasti\Stack\MiddlewareInterface', $call_middleware);
+        $this->assertInstanceOf('Laasti\Stack\Middleware\PrepareableInterface', $call_middleware);
     }
 
     public function testNotDefinedController()
     {
         $middleware = new CallControllerMiddleware();
         try {
-            $middleware->handle(new Request);
+            $middleware->prepare(new Request);
         } catch(RuntimeException $e) {
             $this->assertInstanceOf('RuntimeException', $e);
             return;
@@ -41,7 +41,7 @@ class CallControllerMiddlewareTest extends PHPUnit_Framework_TestCase
 
         $controllerDefinition->expects($this->once())->method('callInstance')->with($request)->will($this->returnValue(new Response));
         $request->attributes->set('_controllerDefinition', $controllerDefinition);
-        $response = $middleware->handle($request);
+        $response = $middleware->prepare($request);
 
         $this->assertInstanceOf('Symfony\Component\HttpFoundation\Response', $response);
     }
@@ -57,7 +57,7 @@ class CallControllerMiddlewareTest extends PHPUnit_Framework_TestCase
 
         $controllerDefinition->expects($this->once())->method('callInstance')->with($request)->will($this->returnValue(new Response));
         $request->attributes->set('customParameter', $controllerDefinition);
-        $response = $middleware->handle($request);
+        $response = $middleware->prepare($request);
 
         $this->assertInstanceOf('Symfony\Component\HttpFoundation\Response', $response);
     }

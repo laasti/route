@@ -15,7 +15,7 @@ composer require laasti/route
 
 ## Usage
 
-Currently does not support closures nor functions as routes.
+Currently does not support closures nor functions as routes, only objects.
 
 With Laasti\Stack:
 
@@ -26,13 +26,12 @@ With Laasti\Stack:
    $routes->setStrategy(new Laasti\Route\ControllerDefinitionStrategy);
    $request = Symfony\Component\HttpFoundation\Request::create('/test');
    $routes->get('/test', 'MyController::display');
-   $stack = new Laasti\Stack\ContainerStack($container);
+   $resolver = new Laasti\Stack\ContainerResolver($container);
+   $stack = new Laasti\Stack\Stack($resolver);
    $stack->push('Laasti\Route\DefineControllerMiddleware');
    $stack->push('Laasti\Route\CallControllerMiddleware');
 
-   $response = $stack->execute($request);
-   $stack->close($request, $response);
-   $response->send();
+   $stack->execute($request);
 
 ```
 
@@ -42,16 +41,18 @@ Without Laasti\Stack:
    $container = new League\Container;
    $routes = new League\Route\RouteCollection($container);
    $routes->setStrategy(new Laasti\Route\ControllerDefinitionStrategy);
-   $request = Symfony\Component\HttpFoundation\Request::create('/test');
-   $routes->get('/test', 'MyController::display');
+   $request = Symfony\Component\HttpFoundation\Request::create('/test/George');
+   $routes->get('/test/{name}', 'MyController::display');
 
    $definition = $routes->getDispatcher()->dispatch($request->getMethod(), $request->getPathInfo());
 
    //Pass the request or any arguments to the controller
+   //Calls MyController->display($request);
    $request->attributes->add($definition->getArguments());
    echo $definition->callController($request);
 
-   //Or, use route attributes as arguments
+   //Or, uses route attributes as arguments
+   //Calls MyController->display($name);
    echo $definition->callController();
 ```
 

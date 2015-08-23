@@ -2,7 +2,7 @@
 
 namespace Laasti\Route;
 
-use Laasti\Stack\MiddlewareInterface;
+use Laasti\Stack\Middleware\PrepareableInterface;
 use RuntimeException;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -13,7 +13,7 @@ use Symfony\Component\HttpFoundation\Request;
  * Make sure that the DefineControllerMiddleware happens before
  * By default, _controllerDefinition will be define in the request attributes.
  */
-class CallControllerMiddleware implements MiddlewareInterface
+class CallControllerMiddleware implements PrepareableInterface
 {
 
     /**
@@ -38,7 +38,7 @@ class CallControllerMiddleware implements MiddlewareInterface
      * @param Request $request
      * @return Request
      */
-    public function handle(Request $request)
+    public function prepare(Request $request)
     {
 
         $definition = $request->attributes->get($this->requestParameter);

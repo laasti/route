@@ -19,7 +19,7 @@ class DefineControllerMiddlewareTest extends PHPUnit_Framework_TestCase
         $routes = new RouteCollection;
         $define_middleware = new DefineControllerMiddleware($routes);
 
-        $this->assertInstanceOf('Laasti\Stack\MiddlewareInterface', $define_middleware);
+        $this->assertInstanceOf('Laasti\Stack\Middleware\PrepareableInterface', $define_middleware);
     }
     
     public function testEmptyRouteCollection()
@@ -28,7 +28,7 @@ class DefineControllerMiddlewareTest extends PHPUnit_Framework_TestCase
         $route = new DefineControllerMiddleware($routes);
         
         try {
-            $route->handle(new Request);
+            $route->prepare(new Request);
         } catch(NotFoundException $e) {
             $this->assertInstanceOf('League\Route\Http\Exception\NotFoundException', $e);
             return;
@@ -50,7 +50,7 @@ class DefineControllerMiddlewareTest extends PHPUnit_Framework_TestCase
         $middleware = new DefineControllerMiddleware($routes);
         $routes->get('test/{name}', 'Controller::display');
 
-        $request = $middleware->handle(Request::create('test/george'));
+        $request = $middleware->prepare(Request::create('test/george'));
         $definition = $request->attributes->get('_controllerDefinition');
 
         $this->assertInstanceOf('Laasti\Route\ControllerDefinition', $definition);
@@ -73,7 +73,7 @@ class DefineControllerMiddlewareTest extends PHPUnit_Framework_TestCase
         $middleware = new DefineControllerMiddleware($routes, 'customRequestParameter');
         $routes->get('test/{name}', 'Controller::display');
 
-        $request = $middleware->handle(Request::create('test/george'));
+        $request = $middleware->prepare(Request::create('test/george'));
         $definition = $request->attributes->get('customRequestParameter');
 
         $this->assertInstanceOf('Laasti\Route\ControllerDefinition', $definition);

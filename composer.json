@@ -1,6 +1,6 @@
 {
     "name": "laasti/route",
-    "description": "A route middleware for Laasti/Stack.",
+    "description": "Two-step controller routing for League/route. Instantiate your controller, do some stuff, then call your controller method.",
     "license": "MIT",
     "authors": [
         {
@@ -13,11 +13,10 @@
         "league/container": "~1.3"
     },
     "require-dev": {
-        "laasti/stack": "dev-develop"
+        "laasti/stack": "~1.0"
     },
     "suggest": {
-        "phpunit/phpunit": "A nice ORM that let's you code.",
-        "squizlabs/php_codesniffer": "For multilingual support in your Laasti application."
+        "laasti/stack": "Middlewares to use with laasti/stack are provided by laasti/route."
     },
     "autoload": {
         "psr-4": {

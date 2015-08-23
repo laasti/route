@@ -2,7 +2,7 @@
 
 namespace Laasti\Route;
 
-use Laasti\Stack\MiddlewareInterface;
+use Laasti\Stack\Middleware\PrepareableInterface;
 use League\Route\RouteCollection;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -13,7 +13,7 @@ use Symfony\Component\HttpFoundation\Request;
  * By default, _controllerDefinition will be define in the request attributes.
  *
  */
-class DefineControllerMiddleware implements MiddlewareInterface
+class DefineControllerMiddleware implements PrepareableInterface
 {
 
     /**
@@ -44,7 +44,7 @@ class DefineControllerMiddleware implements MiddlewareInterface
      * @param Request $request
      * @return Request
      */
-    public function handle(Request $request)
+    public function prepare(Request $request)
     {
         $definition = $this->routes->getDispatcher()->dispatch($request->getMethod(), $request->getPathInfo());
 
