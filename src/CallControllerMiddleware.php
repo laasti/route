@@ -47,7 +47,7 @@ class CallControllerMiddleware implements PrepareableInterface
             throw new RuntimeException('The controller could not be found. Check that the same parameter is used by DefineControllerMiddleware.');
         }
 
-        return $definition->callInstance($request);
+        return $definition->callController($request);
     }
 
 }

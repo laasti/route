@@ -35,11 +35,11 @@ class CallControllerMiddlewareTest extends PHPUnit_Framework_TestCase
         $middleware = new CallControllerMiddleware();
         $controllerDefinition = $this->getMockBuilder('Laasti\Route\ControllerDefinition')
                                 ->disableOriginalConstructor()
-                                ->setMethods(['callInstance'])
+                                ->setMethods(['callController'])
                                 ->getMock();
         $request = new Request;
 
-        $controllerDefinition->expects($this->once())->method('callInstance')->with($request)->will($this->returnValue(new Response));
+        $controllerDefinition->expects($this->once())->method('callController')->with($request)->will($this->returnValue(new Response));
         $request->attributes->set('_controllerDefinition', $controllerDefinition);
         $response = $middleware->prepare($request);
 
@@ -51,11 +51,11 @@ class CallControllerMiddlewareTest extends PHPUnit_Framework_TestCase
         $middleware = new CallControllerMiddleware('customParameter');
         $controllerDefinition = $this->getMockBuilder('Laasti\Route\ControllerDefinition')
                                 ->disableOriginalConstructor()
-                                ->setMethods(['callInstance'])
+                                ->setMethods(['callController'])
                                 ->getMock();
         $request = new Request;
 
-        $controllerDefinition->expects($this->once())->method('callInstance')->with($request)->will($this->returnValue(new Response));
+        $controllerDefinition->expects($this->once())->method('callController')->with($request)->will($this->returnValue(new Response));
         $request->attributes->set('customParameter', $controllerDefinition);
         $response = $middleware->prepare($request);
 
