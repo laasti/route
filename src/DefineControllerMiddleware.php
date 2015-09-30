@@ -5,6 +5,7 @@ namespace Laasti\Route;
 use Laasti\Stack\Middleware\PrepareableInterface;
 use League\Route\RouteCollection;
 use Symfony\Component\HttpFoundation\Request;
+use League\Route\Http\Exception\NotFoundException;
 
 /**
  * Defines the request controller using the RouteCollection dispatcher.
@@ -46,7 +47,11 @@ class DefineControllerMiddleware implements PrepareableInterface
      */
     public function prepare(Request $request)
     {
-        $definition = $this->routes->getDispatcher()->dispatch($request->getMethod(), $request->getPathInfo());
+        try {
+            $definition = $this->routes->getDispatcher()->dispatch($request->getMethod(), $request->getPathInfo());
+        } catch (NotFoundException $e) {
+            $definition = $this->routes->getDispatcher()->dispatch('GET', '/404');
+        }
 
         $request->attributes->set($this->requestParameter, $definition);
         $request->attributes->add($definition->getArguments());
