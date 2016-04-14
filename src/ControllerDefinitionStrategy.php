@@ -23,10 +23,11 @@ class ControllerDefinitionStrategy extends AbstractStrategy implements StrategyI
     {
         list($controller, $method) = $route;
 
-        //Attempt to retrieve controller from container
-        $instance = $this->getContainer()->get($controller);
-
-        return new ControllerDefinition($instance, $method, $vars);
+        $di = $this->getContainer();
+        return new ControllerDefinition(function() use ($di, $controller) {
+            //Attempt to retrieve controller from container
+            return $di->get($controller);
+        }, $method, $vars);
     }
 
 }

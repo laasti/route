@@ -44,10 +44,6 @@ class ControllerDefinition
         if (!is_object($instance)) {
             throw new RuntimeException('"' . $instance . '" is not a PHP object and cannot be used as a controller.');
         }
-        
-        if (!method_exists($instance, $method)) {
-            throw new RuntimeException('"' . get_class($instance) . '" does not have a method "'.$method.'".');
-        }
     }
 
     /**
@@ -63,8 +59,12 @@ class ControllerDefinition
         if (empty($args)) {
             $args = $this->getArguments();
         }
+        $instance = $this->getInstance();
+        if (!method_exists($instance, $this->method)) {
+            throw new RuntimeException('"' . get_class($instance) . '" does not have a method "'.$this->method.'".');
+        }
 
-        return call_user_func_array([$this->getInstance(), $this->getMethod()], $args);
+        return call_user_func_array([$instance, $this->getMethod()], $args);
     }
 
     /**
@@ -73,7 +73,11 @@ class ControllerDefinition
      */
     public function getInstance()
     {
-        return $this->instance;
+        if ($this->instance instanceof \Closure) {
+            $this->instance = call_user_func($this->instance);
+        }
+        
+        return  $this->instance;
     }
 
     /**

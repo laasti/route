@@ -52,7 +52,6 @@ class DefineControllerMiddleware implements PrepareableInterface
         } catch (NotFoundException $e) {
             $definition = $this->routes->getDispatcher()->dispatch('GET', '/404');
         }
-
         $request->attributes->set($this->requestParameter, $definition);
         $request->attributes->add($definition->getArguments());
 
